@@ -1,0 +1,14 @@
+version: "3"
+
+networks:
+  loki:
+
+services:
+  loki:
+    build: loki
+    image: priorartarchive/loki:latest
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki
